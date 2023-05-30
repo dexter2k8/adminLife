@@ -17,7 +17,7 @@ function Sidebar() {
   const { activePage, setActivePage } = useContext(MenuContext);
   const list: IItemProps[] = [
     { title: "Dashboard", icon: <GridViewIcon />, activeRoute: "/dashboard" },
-    { title: "Tokenized Claims", icon: <BarChartIcon />, activeRoute: "/tokenized-claims" },
+    { title: "Analytics", icon: <BarChartIcon />, activeRoute: "/analytics" },
   ];
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Sidebar() {
     <nav className={`${style.container} ${collapsed ? style.collapsed : undefined}`}>
       <SidebarHeader />
 
-      <SidebarTitle title={"Analytics"} />
+      <SidebarTitle title={"Portal"} />
 
       <MenuItems list={list} activeItem={activePage} setActiveItem={setActivePage} />
 

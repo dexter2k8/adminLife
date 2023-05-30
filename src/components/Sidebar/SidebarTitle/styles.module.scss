@@ -6,9 +6,11 @@
   h2 {
     transition: 0.4s ease-out;
     pointer-events: none;
-    padding: 0 .7rem;
     font-size: 1.125rem;
     font-weight: 500;
+    width: 5rem;
+    height: 1.5rem;
+    text-align: center;
   }
   h2.collapsed {
     font-size: .875rem;
