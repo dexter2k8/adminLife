@@ -1,0 +1,39 @@
+.sidebarFooter {
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  padding:.875rem;
+  width: 100%;
+  section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    a {
+      max-height: 1.5rem;
+    }
+    p {
+      font-size: .75rem;
+    }
+  }
+  figure {
+    background-color: var(--bg-primary);    
+    min-width: 3rem;
+    height: 3rem;    
+    border-radius: 50%;
+    overflow: hidden;
+    svg {
+      color: var(--font-default);
+      font-size: 2.5rem;
+      padding-left: .5rem;
+      padding-top: .5rem;
+    }
+  }
+}
+
+.show {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}

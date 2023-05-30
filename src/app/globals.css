@@ -3,6 +3,7 @@
   --bg-primary: #fff;
   --font-default: #434343;
   --font-primary: #fff;
+  --font-placeholder: #6b7280;
 
   --sidebar-bg: #00579a;
   --sidebar-hover: #0077ba;
@@ -47,6 +48,14 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
 }
 
 ::-webkit-scrollbar {

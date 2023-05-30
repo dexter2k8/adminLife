@@ -1,0 +1,10 @@
+.container {
+    background-color: var(--bg-primary);
+    display: flex;
+    gap: .5rem;
+    padding: .5rem;
+    .inputbox {
+        background-color: var(--bg-default);
+        border-radius: 4px;
+    }
+}

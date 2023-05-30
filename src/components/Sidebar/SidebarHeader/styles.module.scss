@@ -1,0 +1,16 @@
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 1.25rem;
+  gap: 1rem;
+  svg {
+    min-width: 2.25rem;
+  }
+}
+
+.show {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}

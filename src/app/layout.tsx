@@ -1,5 +1,7 @@
 import "./globals.css";
 import { Nunito_Sans } from "next/font/google";
+import AuthProvider from "@/hook/authContext";
+import MenuProvider from "@/hook/menuContext";
 
 const nunito = Nunito_Sans({ subsets: ["latin"] });
 
@@ -11,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <AuthProvider>
+          <MenuProvider>{children}</MenuProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

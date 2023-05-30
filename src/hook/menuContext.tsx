@@ -1,3 +1,4 @@
+"use client";
 import { Dispatch, SetStateAction, createContext, useMemo, useState } from "react";
 import { IContextProps } from "./authContext";
 import { defaultDate } from "@/components/Calendar";

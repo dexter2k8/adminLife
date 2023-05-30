@@ -1,0 +1,16 @@
+.sidebarTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25rem 0;
+  h2 {
+    transition: 0.4s ease-out;
+    pointer-events: none;
+    padding: 0 .7rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  h2.collapsed {
+    font-size: .875rem;
+  }
+}
