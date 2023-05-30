@@ -1,4 +1,4 @@
-import style from "./styles.module.css";
+import styles from "./styles.module.scss";
 import { Dispatch, SetStateAction, memo, useCallback, useContext } from "react";
 import Tooltip from "./SidebarTooltip";
 import { MenuContext } from "@/hook/menuContext";
@@ -29,12 +29,12 @@ function MenuItems({ list, activeItem, setActiveItem }: IMenuProps) {
   );
 
   return (
-    <ul className={style.menuItems}>
+    <ul className={styles.menuItems}>
       {list.map((el, i) => (
         <Tooltip title={el.title} disabled={!collapsed} key={i}>
-          <li className={activeItem === i ? style.marker : undefined} onClick={() => handleChange(el, i)}>
+          <li className={activeItem === i ? styles.marker : undefined} onClick={() => handleChange(el, i)}>
             <figure>{el.icon}</figure>
-            <span className={collapsed ? style.show : undefined}>{el.title}</span>
+            <span className={collapsed ? styles.show : undefined}>{el.title}</span>
           </li>
         </Tooltip>
       ))}

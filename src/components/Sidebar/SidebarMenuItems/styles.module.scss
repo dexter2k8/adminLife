@@ -1,0 +1,31 @@
+.menuItems {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-left: 28px;
+    overflow: hidden;
+    figure {
+      height: 3.25rem;
+      line-height: 4rem;
+    }
+  }
+}
+
+.show {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  left: -.25rem;
+  border-right: .25rem solid ;
+  height: 1.85rem;
+  width: .25rem;
+  border-radius: 8px;
+}

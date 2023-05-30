@@ -17,14 +17,13 @@ function CustomTooltip({ title, children, disabled = false }: ICustomTooltipProp
       PopperProps={{
         sx: {
           "& .MuiTooltip-tooltip": {
-            background: "var(--sidebar-bg-color)",
-            color: "var(--font-secondary-color)",
+            background: "var(--sidebar-bg)",
             fontSize: "inherit",
             fontWeight: "400",
-            padding: "8px 16px",
+            padding: ".5rem",
           },
           "& .MuiTooltip-arrow": {
-            color: "var(--sidebar-bg-color)",
+            color: "var(--sidebar-bg)",
           },
         },
       }}
