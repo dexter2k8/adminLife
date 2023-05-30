@@ -1,7 +1,7 @@
 .container {
   position: relative;
   left: 0;
-  background: rgb(48,72,110);
+  background: var(--sidebar-bg);
   background: linear-gradient(180deg, rgba(48,72,110,1) 0%, rgba(67,98,138,1) 30%, rgba(131,148,164,1) 100%);
   color: var(--font-primary);
   min-width: 15rem;
