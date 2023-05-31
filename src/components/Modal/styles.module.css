@@ -1,0 +1,45 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.close {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.body {
+  background: var(--bg-primary);
+  padding: 0 25px 25px;
+  border-radius: 12px;
+  width: fit-content !important;
+}
+
+.body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.body header h2 {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.body header svg {
+  cursor: pointer;
+}

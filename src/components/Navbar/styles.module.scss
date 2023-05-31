@@ -1,10 +1,24 @@
 .container {
-    background-color: var(--bg-primary);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    section {
     display: flex;
     gap: .5rem;
     padding: .5rem;
-    .inputbox {
-        background-color: var(--bg-default);
-        border-radius: 4px;
+        & > button {
+            color: white;
+        }
+        .inputbox {
+            display: flex;
+            background-color: var(--bg-default);
+            border-radius: 4px;
+        }
     }
+    aside {
+        background-color: green;
+        color: white;
+        margin-right: 1rem;
+    }    
 }

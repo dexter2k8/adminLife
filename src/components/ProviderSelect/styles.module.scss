@@ -1,0 +1,51 @@
+.container {
+  width: 17rem;
+  margin-right: 1rem;
+}
+
+.menu {
+  background-color: var(--bg-primary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  figure {
+    span {
+      white-space: nowrap;
+      width: 10rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.providers {
+  width: 30rem;
+  line-height: 2.5rem;
+}
+
+.menu,
+.menu figure,
+.providers ul li,
+.providers ul li figure {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.providers ul {
+  max-height: 12.5rem;
+  overflow: auto;
+}
+
+.providers ul li:hover {
+  background: var(--li-hover);
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
+
+.providers .active {
+  background: var(--li-selected);
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
