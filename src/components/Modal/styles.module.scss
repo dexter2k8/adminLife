@@ -22,24 +22,20 @@
 
 .body {
   background: var(--bg-primary);
-  padding: 0 25px 25px;
-  border-radius: 12px;
-  width: fit-content !important;
-}
-
-.body header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-}
-
-.body header h2 {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
-
-.body header svg {
-  cursor: pointer;
+  padding: 0 1.5rem 1.5rem;
+  border-radius: 0.75rem;  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    h2 {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+    }
+    svg {
+      cursor: pointer;
+    }
+  }
 }

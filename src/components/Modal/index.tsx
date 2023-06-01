@@ -1,4 +1,4 @@
-import style from "./styles.module.css";
+import style from "./styles.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { memo, useCallback, useEffect, useRef } from "react";
 
