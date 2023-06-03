@@ -1,9 +1,9 @@
 import styles from "./styles.module.scss";
-import { memo, useContext } from "react";
+import { memo } from "react";
 
 interface IHeaderProps {
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode | string;
 }
 
 function Header({ title, subtitle }: IHeaderProps) {
@@ -12,7 +12,7 @@ function Header({ title, subtitle }: IHeaderProps) {
       <section>
         <div>
           <h2>{title}</h2>
-          <h4>{subtitle}</h4>
+          <div>{subtitle}</div>
         </div>
       </section>
     </div>

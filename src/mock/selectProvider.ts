@@ -6,23 +6,23 @@ interface IProvider {
 
 export const providers: IProvider[] = [
   {
-    label: "Westlake Health Center",
+    label: "Basic Health Unit",
     image: "/providers/Provider-1.png",
-    value: "westlake",
+    value: "ubs",
   },
   {
-    label: "Cano Health",
+    label: "Mais Saúde",
     image: "/providers/Provider-2.png",
-    value: "cano-health",
+    value: "mais-saude",
   },
   {
-    label: "Baptist South",
+    label: "Baptist of Rio de Janeiro",
     image: "/providers/Provider-3.png",
-    value: "baptist-south",
+    value: "baptist",
   },
   {
-    label: "University of Miami",
+    label: "University of Taubaté",
     image: "/providers/Provider-4.png",
-    value: "UMHS",
+    value: "unitau",
   },
 ];
