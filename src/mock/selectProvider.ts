@@ -11,7 +11,7 @@ export const providers: IProvider[] = [
     value: "ubs",
   },
   {
-    label: "Mais Saúde",
+    label: "Plus Health",
     image: "/providers/Provider-2.png",
     value: "mais-saude",
   },

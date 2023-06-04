@@ -1,4 +1,4 @@
-import style from "./styles.module.css";
+import style from "./styles.module.scss";
 import { memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import DateRangeIcon from "@mui/icons-material/DateRange";
