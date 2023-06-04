@@ -71,6 +71,18 @@
                     color: var(--font-placeholder);
                 }
 
+                .password {
+                    input {
+                        width: 100%;
+                        padding-right: 2.5rem;
+                    }
+                    button {
+                        position: absolute;
+                        margin-left: -2.5rem;
+                        height: 2rem;
+                    }
+                }
+
                 .strapline {
                     margin-top: -1rem;
                 }

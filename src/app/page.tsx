@@ -5,7 +5,8 @@ import styles from "./page.module.scss";
 import * as yup from "yup";
 import { useCallback, useContext, useState } from "react";
 import { AuthContext } from "@/hook/authContext";
-import { Button, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface ISignInProps {
   email: string;
@@ -22,20 +23,15 @@ const initialValues = { email: "", password: "", rememberPassword: false };
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [signInError, setSignInError] = useState<string>("");
   const { signIn } = useContext(AuthContext);
 
   const handleSignIn = useCallback(
     ({ email, password }: ISignInProps) => {
-      setSignInError("");
-      setLoading(true);
       signIn({
         email: email,
         password: password,
       }).catch((error) => {
-        setSignInError(error.message);
-        setLoading(false);
+        console.error(error.message);
       });
     },
     [signIn]
@@ -68,7 +64,12 @@ export default function SignIn() {
                 <Field type="email" name="email" placeholder="Enter email address" />
                 <ErrorMessage name="email" component="i" />
 
-                <Field type="password" name="password" placeholder="Enter your password" />
+                <div className={styles.password}>
+                  <Field type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" />
+                  <IconButton onClick={() => setShowPassword((show) => !show)}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </div>
                 <ErrorMessage name="password" component="i" />
 
                 <div className={styles.strapline}>
