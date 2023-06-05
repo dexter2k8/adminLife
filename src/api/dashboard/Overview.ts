@@ -29,7 +29,7 @@ export async function getClaimStatusOverview({
   signal,
 }: IRequestDataList): Promise<IClaimStatus | undefined> {
   try {
-    const response = await api.get("/api/dashboardOverviewClaims", {
+    const response = await api.get("/api/dashboardOverviewBillings", {
       signal,
       params: {
         start_date: startDate,
@@ -42,7 +42,6 @@ export async function getClaimStatusOverview({
     const sortedData: IClaimStatus = response.data.result.sort(
       (a: IClaimStatus, b: IClaimStatus) => Date.parse(a.transaction_date) - Date.parse(b.transaction_date)
     );
-
     return sortedData;
   } catch (error) {
     console.error(error);

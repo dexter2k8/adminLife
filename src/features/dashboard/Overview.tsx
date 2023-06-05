@@ -46,7 +46,8 @@ function Overview() {
       provider: "UMHS",
       signal,
     })
-      .then(setClaimStatus)
+      .then((res) => console.log(res))
+      // .then(setClaimStatus)
       .catch((error) => console.log(error));
   };
 
