@@ -1,0 +1,12 @@
+.container {
+  background: var(--bg-primary-color);
+  min-width: 320px;
+  border: 1px solid var(--li-hover-color);
+  border-radius: 24px;
+  user-select: none;
+  padding: 20px;
+}
+
+.container h3 {
+  font-weight: 400;
+}
