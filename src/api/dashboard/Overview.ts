@@ -10,9 +10,9 @@ interface IRequestDataList {
 
 export interface IClaimStatus {
   transaction_date: string;
-  total_accepted: string;
-  total_rejected: string;
-  total_outstanding: string;
+  total_accepted: string | number;
+  total_rejected: string | number;
+  total_pending: string | number;
 }
 
 export interface IRejectedAndAdjustmentReasons {

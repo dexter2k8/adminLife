@@ -9,8 +9,6 @@ import ChartDonut from "@/components/Charts/ChartDonut";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import SouthWestIcon from "@mui/icons-material/SouthWest";
 import { getClaimStatusOverview } from "@/api/dashboard/Overview";
-import { el } from "@faker-js/faker";
-import { claimStatusMock } from "@/mock/Dashboard/Overview";
 import { stringDate } from "@/utils/lib";
 
 const totalAcceptedByPayerColors = ["#00579A", "#029BE4", "#4FC3F6", "#B3E5FB", "#E1F5FE"];
@@ -72,8 +70,8 @@ function Overview() {
       <section className={styles.rowContainer}>
         <div className={styles.cardContainer} style={{ width: "60%" }}>
           <div className={styles.cardHeader}>
-            <strong>Claim status overview</strong>
-            <small>Volume of accepted, rejected, and outstanding claims</small>
+            <strong>Billing status overview</strong>
+            <small>Volume of accepted, rejected, and pending billings</small>
           </div>
           <div>
             {!!claimStatus?.length ? (
@@ -89,12 +87,12 @@ function Overview() {
         <div className={styles.columnContainer} style={{ width: "40%" }}>
           <div className={styles.cardContainer}>
             <div className={styles.cardHeader}>
-              <strong>Claim volume</strong>
-              <small>Total claim volume</small>
+              <strong>Billing volume</strong>
+              <small>Total billing volume</small>
             </div>
             <div className={styles.totalBody}>
               <div className={styles.totalContainer}>
-                <p>Total Claims</p>
+                <p>Total Billings</p>
                 <h3>
                   <CountUp end={2.97} decimals={2} suffix={"M"} duration={1} />
                 </h3>
@@ -122,7 +120,7 @@ function Overview() {
               <div className={styles.totalContainer}>
                 <p>
                   <NorthEastIcon style={iconStyle} />
-                  Total Billed (837)
+                  Total Billed
                 </p>
                 <h3>
                   <CountUp end={11.67} decimals={2} suffix={"B"} duration={1} />
@@ -132,7 +130,7 @@ function Overview() {
                 <p>
                   {" "}
                   <SouthWestIcon style={iconStyle} />
-                  Total Accepted (835)
+                  Total Accepted
                 </p>
                 <h3>
                   <CountUp end={7.01} decimals={2} suffix={"B"} duration={1} />

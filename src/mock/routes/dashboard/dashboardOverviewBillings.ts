@@ -1,14 +1,15 @@
 import { Response, Server, Request } from "miragejs";
 import { faker } from "@faker-js/faker";
 import { overviewDate } from "@/utils/lib";
+import { IClaimStatus } from "@/api/dashboard/Overview";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (server: Server) => {
   server.get(
     "/dashboardOverviewBillings",
-    () => {
+    (schema, request) => {
       const data = Array.from({ length: 12 });
-      const dashboardOverviewBilings = [] as Object[];
+      const dashboardOverviewBilings = [] as IClaimStatus[];
       data.forEach((el, i) =>
         dashboardOverviewBilings.push({
           transaction_date: overviewDate(i),
@@ -18,8 +19,16 @@ export default (server: Server) => {
         })
       );
 
-      return new Response(200, {}, dashboardOverviewBilings);
+      // filter the list based on date params
+      const req = request.queryParams;
+      const unixStartDate = Date.parse(req.start_date + "") || 0;
+      const unixEndDate = Date.parse(req.end_date + "") || Date.parse(`${new Date()}`);
+      const filteredData = dashboardOverviewBilings.filter(
+        (el) => Date.parse(el.transaction_date) >= unixStartDate && Date.parse(el.transaction_date) <= unixEndDate
+      );
+
+      return new Response(200, {}, filteredData);
     },
-    { timing: 1000 }
+    { timing: 1000 } //
   );
 };
