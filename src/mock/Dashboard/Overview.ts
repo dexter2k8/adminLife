@@ -1,4 +1,4 @@
-export const claimStatus = [
+export const claimStatusMock = [
   {
     transaction_date: "Jul 2022",
     total_accepted: "191904",

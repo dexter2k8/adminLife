@@ -11,7 +11,7 @@ interface IData {
   transaction_date: string;
   total_accepted: number | string;
   total_rejected: number | string;
-  total_outstanding: number | string;
+  total_pending: number | string;
 }
 function ChartVerticalBar({ title, data }: IChartBarProps) {
   const chartOptions: echarts.EChartsOption = {
@@ -57,13 +57,13 @@ function ChartVerticalBar({ title, data }: IChartBarProps) {
         color: "#E3595A",
       },
       {
-        name: "Outstanding",
+        name: "Pending",
         type: "bar",
         stack: "Claims",
         emphasis: {
           focus: "series",
         },
-        data: data.map((el) => el.total_outstanding),
+        data: data.map((el) => el.total_pending),
         color: "#29B6F5",
       },
     ],

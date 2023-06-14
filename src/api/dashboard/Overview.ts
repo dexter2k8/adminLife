@@ -39,7 +39,7 @@ export async function getClaimStatusOverview({
     });
 
     // sort the list by transaction_date
-    const sortedData: IClaimStatus = response.data.result.sort(
+    const sortedData: IClaimStatus = response.data.sort(
       (a: IClaimStatus, b: IClaimStatus) => Date.parse(a.transaction_date) - Date.parse(b.transaction_date)
     );
     return sortedData;

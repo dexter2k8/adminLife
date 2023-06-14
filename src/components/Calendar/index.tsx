@@ -3,7 +3,7 @@ import { memo, useCallback, useContext, useEffect, useMemo, useRef, useState } f
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import { addDays } from "date-fns";
-import { formatDate } from "@/utils/lib";
+import { calendarDate } from "@/utils/lib";
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
@@ -38,7 +38,7 @@ const Calendar = () => {
   // selected date
   const selectDates = useMemo(
     (): ISelectProps[] => [
-      { title: formatDate(selectedDate), startDate: selectedDate.startDate, endDate: selectedDate.endDate },
+      { title: calendarDate(selectedDate), startDate: selectedDate.startDate, endDate: selectedDate.endDate },
       { title: "7D", startDate: addDays(new Date(), -7), endDate: new Date() },
       { title: "30D", startDate: addDays(new Date(), -30), endDate: new Date() },
       { title: "3M", startDate: addDays(new Date(), -90), endDate: new Date() },

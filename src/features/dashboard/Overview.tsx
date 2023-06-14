@@ -9,6 +9,9 @@ import ChartDonut from "@/components/Charts/ChartDonut";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import SouthWestIcon from "@mui/icons-material/SouthWest";
 import { getClaimStatusOverview } from "@/api/dashboard/Overview";
+import { el } from "@faker-js/faker";
+import { claimStatusMock } from "@/mock/Dashboard/Overview";
+import { stringDate } from "@/utils/lib";
 
 const totalAcceptedByPayerColors = ["#00579A", "#029BE4", "#4FC3F6", "#B3E5FB", "#E1F5FE"];
 
@@ -24,7 +27,7 @@ const iconStyle = {
 
 function Overview() {
   const { selectedDate } = useContext(MenuContext); // get the selected date
-  const [claimStatus, setClaimStatus] = useState<any>();
+  const [claimStatus, setClaimStatus] = useState<any>([]);
 
   const requestClaimStatus = useRef<AbortController | null>(null);
 
@@ -41,14 +44,13 @@ function Overview() {
 
     // recebe o Claim Status Overview da api e armazena em claimStatus
     getClaimStatusOverview({
-      startDate: selectedDate.startDate as Date,
-      endDate: selectedDate.endDate as Date,
+      startDate: stringDate(selectedDate.startDate as Date),
+      endDate: stringDate(selectedDate.endDate as Date),
       provider: "UMHS",
       signal,
     })
-      .then((res) => console.log(res))
-      // .then(setClaimStatus)
-      .catch((error) => console.log(error));
+      .then((res) => setClaimStatus(res))
+      .catch((error) => console.error(error));
   };
 
   const fetchAll = () => {
@@ -74,7 +76,7 @@ function Overview() {
             <small>Volume of accepted, rejected, and outstanding claims</small>
           </div>
           <div>
-            {claimStatus ? (
+            {!!claimStatus?.length ? (
               <ChartVerticalBar data={claimStatus} />
             ) : (
               <>
