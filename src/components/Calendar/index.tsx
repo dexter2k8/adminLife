@@ -4,16 +4,10 @@ import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import { addDays } from "date-fns";
 import { calendarDate } from "@/utils/lib";
-
+import { ISelectProps } from "@/interfaces";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { MenuContext } from "@/hook/menuContext";
-
-export interface ISelectProps {
-  title: string;
-  startDate: Date | undefined;
-  endDate: Date | undefined;
-}
 
 // set the initial default date
 export const defaultDate: Range = { startDate: addDays(new Date(), -360), endDate: new Date() };

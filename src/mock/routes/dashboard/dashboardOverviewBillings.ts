@@ -1,7 +1,7 @@
 import { Response, Server, Request } from "miragejs";
 import { faker } from "@faker-js/faker";
 import { overviewDate } from "@/utils/lib";
-import { IClaimStatus } from "@/api/dashboard/Overview";
+import { IClaimStatus } from "@/interfaces";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (server: Server) => {
@@ -29,6 +29,6 @@ export default (server: Server) => {
 
       return new Response(200, {}, filteredData);
     },
-    { timing: 1000 } //
+    { timing: 1000 } // set a delay time to send the return
   );
 };

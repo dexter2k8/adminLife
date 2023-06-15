@@ -1,6 +1,6 @@
-import { ISelectProps } from "@/components/Calendar";
 import { Range } from "react-date-range";
 import { addDays, format } from "date-fns";
+import { ISelectProps } from "@/interfaces";
 
 // formatted date to display on calendar
 export const calendarDate = (dateObj: ISelectProps | Range) =>

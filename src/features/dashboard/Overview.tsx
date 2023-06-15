@@ -113,7 +113,7 @@ function Overview() {
           </div>
           <div className={styles.cardContainer}>
             <div className={styles.cardHeader}>
-              <strong>Claims balance</strong>
+              <strong>Billings balance</strong>
               <small>Difference of what has been billed and accepted</small>
             </div>
             <div className={styles.totalBody}>
@@ -176,15 +176,15 @@ function Overview() {
       <section className={styles.rowContainer}>
         <div className={styles.cardContainer} style={{ width: "50%" }}>
           <div className={styles.cardHeader}>
-            <strong>Processed by payer</strong>
-            <small>% of total processed claims by payer</small>
+            <strong>Accepted by payer</strong>
+            <small>% of total accepted billings by payer</small>
           </div>
           <div>{/* <ChartDonut data={acceptedByPayer} colors={totalAcceptedByPayerColors} /> */}</div>
         </div>
         <div className={styles.cardContainer} style={{ width: "50%" }}>
           <div className={styles.cardHeader}>
             <strong>Rejected by payer</strong>
-            <small>% of total rejected claims by payer</small>
+            <small>% of total rejected billings by payer</small>
           </div>
           <div>{/* <ChartDonut data={rejectedByPayer} colors={totalRejectedByPayerColors} /> */}</div>
         </div>

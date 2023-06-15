@@ -1,3 +1,4 @@
+import { IClaimStatus, IRejectedAndAdjustmentReasons } from "@/interfaces";
 import api from "@/services/api";
 import { GenericAbortSignal } from "axios";
 
@@ -6,20 +7,6 @@ interface IRequestDataList {
   endDate: Date | string;
   provider: string;
   signal?: GenericAbortSignal;
-}
-
-export interface IClaimStatus {
-  transaction_date: string;
-  total_accepted: string | number;
-  total_rejected: string | number;
-  total_pending: string | number;
-}
-
-export interface IRejectedAndAdjustmentReasons {
-  label: string;
-  description: string;
-  status: string;
-  value: number;
 }
 
 export async function getClaimStatusOverview({
