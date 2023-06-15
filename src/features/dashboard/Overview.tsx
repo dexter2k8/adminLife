@@ -8,8 +8,9 @@ import ChartHorizontalBar from "@/components/Charts/ChartHorizontalBar";
 import ChartDonut from "@/components/Charts/ChartDonut";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import SouthWestIcon from "@mui/icons-material/SouthWest";
-import { getClaimStatusOverview } from "@/api/dashboard/Overview";
+import { getClaimStatusOverview, getRejectedAndAdjustmentReasons } from "@/api/dashboard/Overview";
 import { stringDate } from "@/utils/lib";
+import { acceptedByPayer, mostRejectedCodes, rejectedByPayer } from "@/mock/Dashboard/Overview";
 
 const totalAcceptedByPayerColors = ["#00579A", "#029BE4", "#4FC3F6", "#B3E5FB", "#E1F5FE"];
 
@@ -26,8 +27,10 @@ const iconStyle = {
 function Overview() {
   const { selectedDate } = useContext(MenuContext); // get the selected date
   const [claimStatus, setClaimStatus] = useState<any>([]);
+  const [rejectedAndAdjustment, setRejectedAndAdjustment] = useState<any>([]);
 
   const requestClaimStatus = useRef<AbortController | null>(null);
+  const requestRejectedAndAdjustment = useRef<AbortController | null>(null);
 
   const fetchClaimStatus = () => {
     //Aborta a requisição pendente, se houver uma instância de AbortController atribuída à variável
@@ -51,8 +54,29 @@ function Overview() {
       .catch((error) => console.error(error));
   };
 
+  const fetchRejectedAndAdjustment = () => {
+    if (requestRejectedAndAdjustment.current) {
+      requestRejectedAndAdjustment.current.abort();
+    }
+
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    requestRejectedAndAdjustment.current = controller;
+
+    getRejectedAndAdjustmentReasons({
+      startDate: stringDate(selectedDate.startDate as Date),
+      endDate: stringDate(selectedDate.endDate as Date),
+      provider: "UMHS",
+      signal,
+    })
+      .then((res) => setRejectedAndAdjustment(res))
+      .catch((error) => console.error(error));
+  };
+
   const fetchAll = () => {
     fetchClaimStatus();
+    fetchRejectedAndAdjustment();
   };
 
   // Executa as requisições das api's
@@ -61,6 +85,7 @@ function Overview() {
 
     return () => {
       requestClaimStatus.current?.abort();
+      requestRejectedAndAdjustment.current?.abort();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate]);
@@ -162,14 +187,25 @@ function Overview() {
             <strong>Rejected and Adjustment reasons</strong>
             <small>Amount of rejection and adjustment reasons</small>
           </div>
-          <div>{/* <ChartHorizontalBar data={rejectAdjustmentReason} chartHeight={264} cardHeight="320px" /> */}</div>
+          <div>
+            {!!rejectedAndAdjustment ? (
+              <ChartHorizontalBar data={rejectedAndAdjustment} chartHeight={264} cardHeight="320px" />
+            ) : (
+              <>
+                <Skeleton style={{ margin: "3% 27% 0%" }} variant="rectangular" width={"46%"} height={20} />
+                <Skeleton style={{ margin: "4% 5% 6%" }} variant="rectangular" width={"90%"} height={237} />
+              </>
+            )}
+          </div>
         </div>
         <div className={styles.cardContainer} style={{ width: "40%" }}>
           <div className={styles.cardHeader}>
-            <strong>Most rejected CPT codes</strong>
-            <small>10 most rejected CPT codes</small>
+            <strong>Most rejected billing codes</strong>
+            <small>10 most rejected billing codes</small>
           </div>
-          <div>{/* <ChartHorizontalBar data={mostRejectedCPT} chartHeight={264} cardHeight="320px" /> */}</div>
+          <div>
+            <ChartHorizontalBar data={mostRejectedCodes} chartHeight={264} cardHeight="320px" />
+          </div>
         </div>
       </section>
 
@@ -179,14 +215,18 @@ function Overview() {
             <strong>Accepted by payer</strong>
             <small>% of total accepted billings by payer</small>
           </div>
-          <div>{/* <ChartDonut data={acceptedByPayer} colors={totalAcceptedByPayerColors} /> */}</div>
+          <div>
+            <ChartDonut data={acceptedByPayer} colors={totalAcceptedByPayerColors} />
+          </div>
         </div>
         <div className={styles.cardContainer} style={{ width: "50%" }}>
           <div className={styles.cardHeader}>
             <strong>Rejected by payer</strong>
             <small>% of total rejected billings by payer</small>
           </div>
-          <div>{/* <ChartDonut data={rejectedByPayer} colors={totalRejectedByPayerColors} /> */}</div>
+          <div>
+            <ChartDonut data={rejectedByPayer} colors={totalRejectedByPayerColors} />
+          </div>
         </div>
       </section>
     </div>

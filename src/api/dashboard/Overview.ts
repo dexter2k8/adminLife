@@ -50,7 +50,7 @@ export async function getRejectedAndAdjustmentReasons({
         provider: provider,
       },
     });
-    return response.data.result;
+    return response.data;
   } catch (error) {
     console.error(error);
   }
