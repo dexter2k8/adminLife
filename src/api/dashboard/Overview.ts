@@ -14,7 +14,7 @@ export async function getClaimStatusOverview({
   endDate,
   provider,
   signal,
-}: IRequestDataList): Promise<IClaimStatus | undefined> {
+}: IRequestDataList): Promise<IClaimStatus[] | undefined> {
   try {
     const response = await api.get("/api/dashboardOverviewBillings", {
       signal,
@@ -26,7 +26,7 @@ export async function getClaimStatusOverview({
     });
 
     // sort the list by transaction_date
-    const sortedData: IClaimStatus = response.data.sort(
+    const sortedData: IClaimStatus[] = response.data.sort(
       (a: IClaimStatus, b: IClaimStatus) => Date.parse(a.transaction_date) - Date.parse(b.transaction_date)
     );
     return sortedData;
@@ -40,7 +40,7 @@ export async function getRejectedAndAdjustmentReasons({
   endDate,
   provider,
   signal,
-}: IRequestDataList): Promise<IRejectedAndAdjustmentReasons | undefined> {
+}: IRequestDataList): Promise<IRejectedAndAdjustmentReasons[] | undefined> {
   try {
     const response = await api.get("/api/rejectedAndAdjustmentReasons", {
       signal,

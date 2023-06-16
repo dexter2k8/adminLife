@@ -12,7 +12,7 @@ interface IMenuProps {
 
 export interface IItemProps {
   title: string;
-  icon: any;
+  icon: string | React.ReactNode;
   activeRoute: string;
 }
 

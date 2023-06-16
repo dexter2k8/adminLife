@@ -1,4 +1,4 @@
-import style from "./styles.module.css";
+import style from "../ChartHorizontalBar/styles.module.scss";
 import { memo } from "react";
 import dynamic from "next/dynamic";
 const Charts = dynamic(() => import("echarts-for-react"));

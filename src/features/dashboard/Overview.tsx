@@ -11,6 +11,7 @@ import SouthWestIcon from "@mui/icons-material/SouthWest";
 import { getClaimStatusOverview, getRejectedAndAdjustmentReasons } from "@/api/dashboard/Overview";
 import { stringDate } from "@/utils/lib";
 import { acceptedByPayer, mostRejectedCodes, rejectedByPayer } from "@/mock/Dashboard/Overview";
+import { IClaimStatus, IRejectedAndAdjustmentReasons } from "@/interfaces";
 
 const totalAcceptedByPayerColors = ["#00579A", "#029BE4", "#4FC3F6", "#B3E5FB", "#E1F5FE"];
 
@@ -26,8 +27,8 @@ const iconStyle = {
 
 function Overview() {
   const { selectedDate } = useContext(MenuContext); // get the selected date
-  const [claimStatus, setClaimStatus] = useState<any>([]);
-  const [rejectedAndAdjustment, setRejectedAndAdjustment] = useState<any>([]);
+  const [claimStatus, setClaimStatus] = useState<IClaimStatus[] | undefined>();
+  const [rejectedAndAdjustment, setRejectedAndAdjustment] = useState<IRejectedAndAdjustmentReasons[] | undefined>();
 
   const requestClaimStatus = useRef<AbortController | null>(null);
   const requestRejectedAndAdjustment = useRef<AbortController | null>(null);
