@@ -4,7 +4,7 @@ import Tooltip from "./SidebarTooltip";
 import { MenuContext } from "@/hook/menuContext";
 import { useRouter } from "next/navigation";
 
-interface IMenuProps {
+export interface IMenuProps {
   list: IItemProps[];
   activeItem: number;
   setActiveItem: Dispatch<SetStateAction<number>>;

@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import { memo } from "react";
+import ProviderSelect from "../ProviderSelect";
 
 interface IHeaderProps {
   title: string;
@@ -15,6 +16,7 @@ function Header({ title, subtitle }: IHeaderProps) {
           <div>{subtitle}</div>
         </div>
       </section>
+      <ProviderSelect />
     </div>
   );
 }

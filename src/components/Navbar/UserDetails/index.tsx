@@ -7,13 +7,13 @@ import { AuthContext } from "@/hook/authContext";
 import { Logout } from "@mui/icons-material";
 import Link from "next/link";
 
-interface ISidebarfooterProps {
+interface IUserDetailsProps {
   avatar?: string;
   username: string;
   email: string;
 }
 
-function SidebarFooter({ avatar, username, email }: ISidebarfooterProps) {
+function UserDetails({ avatar, username, email }: IUserDetailsProps) {
   const { collapsed } = useContext(MenuContext);
   const { signOut } = useContext(AuthContext);
 
@@ -22,9 +22,9 @@ function SidebarFooter({ avatar, username, email }: ISidebarfooterProps) {
   }, [signOut]);
 
   return (
-    <footer className={styles.sidebarFooter}>
-      {/* <figure>{avatar ? <Image src={avatar} alt="avatar" width={48} height={48} /> : <PersonOutlineIcon />}</figure>
-      <section className={collapsed ? styles.show : undefined}>
+    <div className={styles.userDetails}>
+      <figure>{avatar ? <Image src={avatar} alt="avatar" width={40} height={40} /> : <PersonOutlineIcon />}</figure>
+      <section>
         <div>
           <h4>{username}</h4>
           <p>{email}</p>
@@ -32,8 +32,8 @@ function SidebarFooter({ avatar, username, email }: ISidebarfooterProps) {
         <Link href={""} onClick={handleSignOut}>
           <Logout />
         </Link>
-      </section> */}
-    </footer>
+      </section>
+    </div>
   );
 }
-export default memo(SidebarFooter);
+export default memo(UserDetails);

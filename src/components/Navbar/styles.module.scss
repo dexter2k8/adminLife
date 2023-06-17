@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    section {
+    & > section {
     display: flex;
     gap: .5rem;
     padding: .5rem;

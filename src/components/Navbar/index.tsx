@@ -1,12 +1,12 @@
 "use client";
 import styles from "./styles.module.scss";
 import { memo, useContext } from "react";
-import ProviderSelect from "../ProviderSelect";
 import { MenuContext } from "@/hook/menuContext";
 import { IconButton } from "@mui/material";
 import { InputBase } from "@mui/material";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import UserDetails from "./UserDetails";
 
 function Navbar() {
   const { collapsed, setCollapsed } = useContext(MenuContext);
@@ -23,7 +23,7 @@ function Navbar() {
           </IconButton>
         </div>
       </section>
-      <ProviderSelect />
+      <UserDetails avatar={"/avatar.jpg"} username={"Admin"} email={"admin@mail.com"} />
     </div>
   );
 }
