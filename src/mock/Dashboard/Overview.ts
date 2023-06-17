@@ -1,8 +1,7 @@
 export const rejectAdjustmentReason = [
   {
     label: "18",
-    description:
-      "Exact duplicate service (Use only with Group Code OA except where state workers' compensation regulations requires CO) Start: 01/01/1995 | Last Modified: 06/02/2013",
+    description: "Exact duplicate service. Start: 01/01/1995 | Last Modified: 06/02/2013",
     status: "activated",
     value: 602,
   },
