@@ -27,6 +27,7 @@ const iconStyle = {
 
 function Overview() {
   const { selectedDate } = useContext(MenuContext); // get the selected date
+  const { providerSelected } = useContext(MenuContext); // set the provider
   const [claimStatus, setClaimStatus] = useState<IClaimStatus[] | undefined>();
   const [rejectedAndAdjustment, setRejectedAndAdjustment] = useState<IRejectedAndAdjustmentReasons[] | undefined>();
 
@@ -48,10 +49,10 @@ function Overview() {
     getClaimStatusOverview({
       startDate: stringDate(selectedDate.startDate as Date),
       endDate: stringDate(selectedDate.endDate as Date),
-      provider: "UMHS",
+      provider: providerSelected.value,
       signal,
     })
-      .then((res) => setClaimStatus(res))
+      .then(setClaimStatus)
       .catch((error) => console.error(error));
   };
 
@@ -71,7 +72,7 @@ function Overview() {
       provider: "UMHS",
       signal,
     })
-      .then((res) => setRejectedAndAdjustment(res))
+      .then(setRejectedAndAdjustment)
       .catch((error) => console.error(error));
   };
 
@@ -89,7 +90,7 @@ function Overview() {
       requestRejectedAndAdjustment.current?.abort();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDate]);
+  }, [selectedDate, providerSelected]);
 
   return (
     <div className={styles.container}>

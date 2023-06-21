@@ -1,5 +1,5 @@
 import style from "./styles.module.scss";
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useContext, useMemo, useState } from "react";
 import Modal from "../Modal";
 import { providers } from "@/mock/selectProvider";
 import { InputAdornment, TextField } from "@mui/material";
@@ -7,23 +7,20 @@ import SearchIcon from "@mui/icons-material/Search";
 import CheckIcon from "@mui/icons-material/Check";
 import LaunchIcon from "@mui/icons-material/Launch";
 import Image from "next/image";
-
-interface IProvider {
-  label: string;
-  value: string;
-  image: string;
-}
+import { MenuContext } from "@/hook/menuContext";
+import { IProvider } from "@/interfaces";
 
 function SelectProvider() {
   const [search, setSearch] = useState<string>(""); // providers input search
-  const [providerSelected, setProviderSelected] = useState<IProvider>(providers[3]); //selected provider
   const [open, setOpen] = useState<boolean>(false); // Open/close modal
+  const { providerSelected, setProviderSelected } = useContext(MenuContext); // set the provider
 
   const handleOpen = useCallback(() => setOpen(true), []); // Abrir o modal
   const handleClose = useCallback(() => setOpen(false), []); // Fechar o modal
   const handleChangeProvider = useCallback((provider: IProvider) => {
     setProviderSelected(provider);
     setOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Filtra a lista de providers

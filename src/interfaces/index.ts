@@ -24,3 +24,9 @@ export interface ISelectProps {
   startDate: Date | undefined;
   endDate: Date | undefined;
 }
+
+export interface IProvider {
+  label: string;
+  value: string;
+  image: string;
+}

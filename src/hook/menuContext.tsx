@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction, createContext, useMemo, useState } from "reac
 import { IContextProps } from "./authContext";
 import { defaultDate } from "@/components/Calendar";
 import { Range } from "react-date-range";
+import { providers } from "@/mock/selectProvider";
+import { IProvider } from "@/interfaces";
 
 interface IMenuContext {
   activePage: number;
@@ -15,6 +17,8 @@ interface IMenuContext {
   setSelectedDate: Dispatch<SetStateAction<Range>>;
   tokenizedTab: string;
   setTokenizedTab: Dispatch<SetStateAction<string>>;
+  providerSelected: IProvider;
+  setProviderSelected: Dispatch<SetStateAction<IProvider>>;
 }
 
 export const MenuContext = createContext({} as IMenuContext);
@@ -25,6 +29,7 @@ function MenuProvider({ children }: IContextProps) {
   const [activeDate, setActiveDate] = useState<number>(5); // set the active button on calendar
   const [selectedDate, setSelectedDate] = useState<Range>(defaultDate); // set the active selected calendar date
   const [tokenizedTab, setTokenizedTab] = useState<string>("0"); // set the active tokenized claims
+  const [providerSelected, setProviderSelected] = useState<IProvider>(providers[3]); //selected provider
 
   const values = useMemo(
     (): IMenuContext => ({
@@ -38,8 +43,10 @@ function MenuProvider({ children }: IContextProps) {
       setSelectedDate,
       tokenizedTab,
       setTokenizedTab,
+      providerSelected,
+      setProviderSelected,
     }),
-    [activeDate, activePage, collapsed, selectedDate, tokenizedTab]
+    [activeDate, activePage, collapsed, selectedDate, tokenizedTab, providerSelected]
   );
 
   return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>;
