@@ -69,7 +69,7 @@ function Overview() {
     getRejectedAndAdjustmentReasons({
       startDate: stringDate(selectedDate.startDate as Date),
       endDate: stringDate(selectedDate.endDate as Date),
-      provider: "UMHS",
+      provider: providerSelected.value,
       signal,
     })
       .then(setRejectedAndAdjustment)

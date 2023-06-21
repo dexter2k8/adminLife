@@ -13,6 +13,7 @@ export function makeServer({ environment = "development" }) {
       dashboardOverviewBillings(this);
       rejectedAndAdjustmentReasons(this);
 
+      this.namespace = ""; // Reset namespace to avoid route definition error
       this.passthrough(); // Avoid throw an JS error if makes an invalid request
     },
   });
