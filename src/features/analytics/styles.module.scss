@@ -1,0 +1,35 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  border-bottom: 1px solid var(--li-hover);
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.charts {
+  grid-template-columns: 0.5fr repeat(2, 1fr);
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.days {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+
+  h3 {
+    background: var(--bg-default);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    user-select: none;
+    white-space: nowrap;
+  }
+}

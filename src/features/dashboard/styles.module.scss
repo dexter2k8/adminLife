@@ -1,64 +1,63 @@
 .container {
-    height: 100%;
-    padding: 16px;
-    // overflow-x: hidden;
+  height: 100%;
+  padding: 16px;
+  // overflow-x: hidden;
 }
 
 .rowContainer {
-    display: flex;
-    gap: 12px;
-  }
-  
-  .cardContainer {
-    border-radius: 8px;
-    border: 1px solid #d9d9d9;
-    margin-bottom: 12px;
-  }
-  
-  .cardContainer div:last-child {
-    border: none;
-  }
-  
-  .cardHeader {
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-    border-bottom: 1px solid #d9d9d9;
-  }
-  
-  .cardBody strong,
-  .cardHeader strong {
-    font-size: 18px;
-  }
-  
-  .totalBody {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 12px;
-    border-bottom: 1px solid #d9d9d9;
-  }
-  
-  .totalContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .totalContainer p {
+  display: flex;
+  gap: 12px;
+}
+
+.cardContainer {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 12px;
+}
+
+.cardContainer div:last-child {
+  border: none;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.cardBody strong,
+.cardHeader strong {
+  font-size: 18px;
+}
+
+.totalBody {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 12px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.totalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  
-  .cardBody {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px;
-  }
-  
-  .balanceContainer {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.balanceContainer {
+  display: flex;
+  justify-content: space-between;
+}

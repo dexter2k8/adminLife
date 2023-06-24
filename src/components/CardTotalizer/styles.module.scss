@@ -1,0 +1,17 @@
+.container {
+  background: var(--bg-primary);
+  min-width: 12rem;
+  border: 1px solid var(--li-hover);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  user-select: none;
+  h3,
+  h4 {
+    font-weight: 400;
+  }
+  span {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: -0.03rem;
+  }
+}

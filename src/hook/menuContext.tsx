@@ -15,8 +15,8 @@ interface IMenuContext {
   setActiveDate: Dispatch<SetStateAction<number>>;
   selectedDate: Range;
   setSelectedDate: Dispatch<SetStateAction<Range>>;
-  tokenizedTab: string;
-  setTokenizedTab: Dispatch<SetStateAction<string>>;
+  analyticsTab: string;
+  setAnalyticsTab: Dispatch<SetStateAction<string>>;
   providerSelected: IProvider;
   setProviderSelected: Dispatch<SetStateAction<IProvider>>;
 }
@@ -28,7 +28,7 @@ function MenuProvider({ children }: IContextProps) {
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const [activeDate, setActiveDate] = useState<number>(5); // set the active button on calendar
   const [selectedDate, setSelectedDate] = useState<Range>(defaultDate); // set the active selected calendar date
-  const [tokenizedTab, setTokenizedTab] = useState<string>("0"); // set the active tokenized claims
+  const [analyticsTab, setAnalyticsTab] = useState<string>("0"); // set the active tokenized claims
   const [providerSelected, setProviderSelected] = useState<IProvider>(providers[3]); //selected provider
 
   const values = useMemo(
@@ -41,12 +41,12 @@ function MenuProvider({ children }: IContextProps) {
       setActiveDate,
       selectedDate,
       setSelectedDate,
-      tokenizedTab,
-      setTokenizedTab,
+      analyticsTab,
+      setAnalyticsTab,
       providerSelected,
       setProviderSelected,
     }),
-    [activeDate, activePage, collapsed, selectedDate, tokenizedTab, providerSelected]
+    [activeDate, activePage, collapsed, selectedDate, analyticsTab, providerSelected]
   );
 
   return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>;
