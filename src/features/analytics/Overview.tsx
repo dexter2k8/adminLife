@@ -13,21 +13,21 @@ function Overview() {
       <section className={style.cards}>
         <CardTotalizer
           title="Accepted"
-          color="var(--card-accepted-color)"
+          color="var(--card-accepted)"
           value={(100 * overviewStats.accepted) / overviewStats.total}
           suffix="%"
           strapline={`${overviewStats.accepted} Claims`}
         />
         <CardTotalizer
           title="Rejected"
-          color="var(--card-rejected-color)"
+          color="var(--card-rejected)"
           value={(100 * overviewStats.rejected) / overviewStats.total}
           suffix="%"
           strapline={`${overviewStats.rejected} Claims`}
         />
         <CardTotalizer
           title="Outstanding"
-          color="var(--card-outstanding-color)"
+          color="var(--card-outstanding)"
           value={(100 * overviewStats.outstanding) / overviewStats.total}
           suffix="%"
           strapline={`${overviewStats.outstanding} Claims`}
