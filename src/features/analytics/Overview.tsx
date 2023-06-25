@@ -48,7 +48,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.accepted) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.accepted)} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.accepted)} bills`}
         />
         <CardTotalizer
           title="Rejected"
@@ -56,7 +56,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.rejected) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.rejected)} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.rejected)} bills`}
         />
         <CardTotalizer
           title="Pending"
@@ -64,7 +64,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.pending) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.pending)} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.pending)} bills`}
         />
       </section>
 
