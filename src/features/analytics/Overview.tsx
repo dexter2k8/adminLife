@@ -8,6 +8,7 @@ import { overviewColumns } from "@/components/Tables/columns";
 import Filter from "@/components/Filter";
 import api from "@/services/api";
 import { MenuContext } from "@/hook/menuContext";
+import { formatNumber } from "@/utils/lib";
 
 interface IOverviewStats {
   accepted: number;
@@ -45,25 +46,25 @@ function Overview() {
           title="Accepted"
           color="var(--card-accepted)"
           decimals={1}
-          value={overviewStats ? (100 * overviewStats.accepted) / totalBills : 0}
+          value={overviewStats && (100 * overviewStats.accepted) / totalBills}
           suffix="%"
-          strapline={`${overviewStats ? overviewStats.accepted : 0} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.accepted)} Bills`}
         />
         <CardTotalizer
           title="Rejected"
           color="var(--card-rejected)"
           decimals={1}
-          value={overviewStats ? (100 * overviewStats.rejected) / totalBills : 0}
+          value={overviewStats && (100 * overviewStats.rejected) / totalBills}
           suffix="%"
-          strapline={`${overviewStats ? overviewStats.rejected : 0} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.rejected)} Bills`}
         />
         <CardTotalizer
           title="Pending"
           color="var(--card-pending)"
           decimals={1}
-          value={overviewStats ? (100 * overviewStats.pending) / totalBills : 0}
+          value={overviewStats && (100 * overviewStats.pending) / totalBills}
           suffix="%"
-          strapline={`${overviewStats ? overviewStats.pending : 0} Bills`}
+          strapline={`${overviewStats && formatNumber(overviewStats.pending)} Bills`}
         />
       </section>
 

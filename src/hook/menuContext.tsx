@@ -32,7 +32,7 @@ function MenuProvider({ children }: IContextProps) {
   const [selectedDate, setSelectedDate] = useState<Range>(defaultDate); // set the active selected calendar date
   const [analyticsTab, setAnalyticsTab] = useState<string>("0"); // set the active tokenized claims
   const [providerSelected, setProviderSelected] = useState<IProvider>(providers[3]); //selected provider
-  const [totalBills, setTotalBills] = useState<number>(-1); // get total bills value
+  const [totalBills, setTotalBills] = useState<number>(0); // get total bills value
 
   const values = useMemo(
     (): IMenuContext => ({
