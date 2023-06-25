@@ -8,7 +8,7 @@ import { ITabListProps } from "@/interfaces";
 import Overview from "@/features/analytics/Overview";
 
 export default function Analytics() {
-  const { analyticsTab, setAnalyticsTab } = useContext(MenuContext);
+  const { analyticsTab, setAnalyticsTab, totalBills } = useContext(MenuContext);
 
   const tabList: ITabListProps[] = [
     { label: "Overview", tabPage: <Overview /> },
@@ -19,7 +19,7 @@ export default function Analytics() {
 
   return (
     <div className={styles.container}>
-      <Header title="Analytics" subtitle="Total Bills: --" />
+      <Header title="Analytics" subtitle={`Total Bills: ${totalBills}`} />
       <TabPagination activeTab={analyticsTab} setActiveTab={setAnalyticsTab} tabList={tabList} page="analytics" />
     </div>
   );

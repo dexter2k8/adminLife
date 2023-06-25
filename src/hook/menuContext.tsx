@@ -19,6 +19,8 @@ interface IMenuContext {
   setAnalyticsTab: Dispatch<SetStateAction<string>>;
   providerSelected: IProvider;
   setProviderSelected: Dispatch<SetStateAction<IProvider>>;
+  totalBills: number;
+  setTotalBills: Dispatch<SetStateAction<number>>;
 }
 
 export const MenuContext = createContext({} as IMenuContext);
@@ -30,6 +32,7 @@ function MenuProvider({ children }: IContextProps) {
   const [selectedDate, setSelectedDate] = useState<Range>(defaultDate); // set the active selected calendar date
   const [analyticsTab, setAnalyticsTab] = useState<string>("0"); // set the active tokenized claims
   const [providerSelected, setProviderSelected] = useState<IProvider>(providers[3]); //selected provider
+  const [totalBills, setTotalBills] = useState<number>(-1); // get total bills value
 
   const values = useMemo(
     (): IMenuContext => ({
@@ -45,8 +48,10 @@ function MenuProvider({ children }: IContextProps) {
       setAnalyticsTab,
       providerSelected,
       setProviderSelected,
+      totalBills,
+      setTotalBills,
     }),
-    [activeDate, activePage, collapsed, selectedDate, analyticsTab, providerSelected]
+    [activePage, collapsed, activeDate, selectedDate, analyticsTab, providerSelected, totalBills]
   );
 
   return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>;

@@ -1,4 +1,4 @@
-import { Response, Server, Request } from "miragejs";
+import { Response, Server } from "miragejs";
 import { faker } from "@faker-js/faker";
 import { overviewDate } from "@/utils/lib";
 import { IClaimStatus } from "@/interfaces";
