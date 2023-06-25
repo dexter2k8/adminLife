@@ -9,7 +9,7 @@ export const payers: IPayerProps[] = [
   { id: 2, value: "DHA" },
   { id: 3, value: "VHA" },
 ];
-export const cptCodes: IPayerProps[] = [
+export const billCodes: IPayerProps[] = [
   { id: 0, value: "1923091" },
   { id: 1, value: "CT-1230" },
   { id: 2, value: "M2892133" },

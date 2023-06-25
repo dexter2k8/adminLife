@@ -13,7 +13,7 @@ export const styledBox = {
     background: "#FCEBEE",
     color: "#A92C2A",
   },
-  "& .outstanding div": {
+  "& .pending div": {
     background: "#E1F5FE",
     color: "#00579A",
   },

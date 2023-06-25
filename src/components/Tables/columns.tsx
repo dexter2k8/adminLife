@@ -4,22 +4,22 @@ import { GridCellParams, GridColDef } from "@mui/x-data-grid";
 const status = (params: GridCellParams<any>) => {
   if (params.value == "Accepted") return "status accepted";
   else if (params.value == "Rejected") return "status rejected";
-  else if (params.value == "Outstanding") return "status outstanding";
+  else if (params.value == "Pending") return "status pending";
   return "status";
 };
 
 export const overviewColumns: GridColDef[] = [
-  { field: "pcn", headerName: "PCN", flex: 1 },
+  { field: "id", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "cptCodes", headerName: "CPT Codes", flex: 1, align: "center", headerAlign: "center" },
+  { field: "billCodes", headerName: "Bill Codes", flex: 1, align: "center", headerAlign: "center" },
   { field: "date", headerName: "Transaction Date", flex: 1 },
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
 ];
 
 export const acceptedColumns: GridColDef[] = [
-  { field: "pcn", headerName: "PCN", flex: 1 },
+  { field: "id", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "cptCodes", headerName: "CPT Codes", flex: 1 },
+  { field: "billCodes", headerName: "Bill Codes", flex: 1 },
   { field: "date", headerName: "Transaction Date", flex: 1 },
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
   {
@@ -40,9 +40,9 @@ export const acceptedColumns: GridColDef[] = [
   },
 ];
 export const rejectedColumns: GridColDef[] = [
-  { field: "pcn", headerName: "PCN", flex: 1 },
+  { field: "id", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "cptCodes", headerName: "CPT Codes", flex: 1 },
+  { field: "billCodes", headerName: "Bill Codes", flex: 1 },
   { field: "date", headerName: "Transaction Date", flex: 1 },
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
   {
