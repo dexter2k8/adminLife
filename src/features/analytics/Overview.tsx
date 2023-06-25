@@ -44,6 +44,7 @@ function Overview() {
         <CardTotalizer
           title="Accepted"
           color="var(--card-accepted)"
+          decimals={1}
           value={overviewStats ? (100 * overviewStats.accepted) / totalBills : 0}
           suffix="%"
           strapline={`${overviewStats ? overviewStats.accepted : 0} Bills`}
@@ -51,6 +52,7 @@ function Overview() {
         <CardTotalizer
           title="Rejected"
           color="var(--card-rejected)"
+          decimals={1}
           value={overviewStats ? (100 * overviewStats.rejected) / totalBills : 0}
           suffix="%"
           strapline={`${overviewStats ? overviewStats.rejected : 0} Bills`}
@@ -58,6 +60,7 @@ function Overview() {
         <CardTotalizer
           title="Pending"
           color="var(--card-pending)"
+          decimals={1}
           value={overviewStats ? (100 * overviewStats.pending) / totalBills : 0}
           suffix="%"
           strapline={`${overviewStats ? overviewStats.pending : 0} Bills`}

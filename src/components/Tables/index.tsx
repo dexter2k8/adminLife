@@ -84,7 +84,7 @@ function Table({ columns, rows, rowCount, rowClick /* setLimit, setOffset */ }: 
         rowCount={rowCount} // custom number of rows
         onRowClick={rowClick}
         paginationMode="server" // table paginated by server
-        localeText={{ footerRowSelected: () => undefined }} // remove footer white space
+        localeText={{ footerRowSelected: () => undefined }} // remove footer whitespace
         components={{ Pagination: CustomPagination }} //show custom pagination
         // initialState={{
         //   pagination: { paginationModel: { pageSize: 25 } }, // rows per page default

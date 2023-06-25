@@ -23,3 +23,10 @@ export const overviewDate = (index: number): string => {
   const date = addDays(new Date(), -30 * index);
   return date.toLocaleDateString("en-us", { month: "short", year: "numeric" });
 };
+
+// thousands unit separator
+export const formatNumber = (number: number): string => {
+  const formattedInteger = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  return formattedInteger;
+};

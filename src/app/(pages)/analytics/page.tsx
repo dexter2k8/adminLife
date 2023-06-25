@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import TabPagination from "@/components/TabPagination";
 import { ITabListProps } from "@/interfaces";
 import Overview from "@/features/analytics/Overview";
+import { formatNumber } from "@/utils/lib";
 
 export default function Analytics() {
   const { analyticsTab, setAnalyticsTab, totalBills } = useContext(MenuContext);
@@ -19,7 +20,7 @@ export default function Analytics() {
 
   return (
     <div className={styles.container}>
-      <Header title="Analytics" subtitle={`Total Bills: ${totalBills}`} />
+      <Header title="Analytics" subtitle={`Total: ${formatNumber(totalBills)} bills`} />
       <TabPagination activeTab={analyticsTab} setActiveTab={setAnalyticsTab} tabList={tabList} page="analytics" />
     </div>
   );
