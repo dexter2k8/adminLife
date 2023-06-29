@@ -8,11 +8,12 @@ interface IDataGridProps {
   rows: GridRowsProp;
   rowCount: number;
   rowClick?(data: GridRowParams<any>): void;
+  isLoading: boolean;
   // setLimit: Dispatch<React.SetStateAction<number>>;
   // setOffset: Dispatch<React.SetStateAction<number>>;
 }
 
-function Table({ columns, rows, rowCount, rowClick /* setLimit, setOffset */ }: IDataGridProps) {
+function Table({ columns, rows, rowCount, rowClick, isLoading /* setLimit, setOffset */ }: IDataGridProps) {
   const [page, setPage] = useState<number>(1);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
 
@@ -92,7 +93,7 @@ function Table({ columns, rows, rowCount, rowClick /* setLimit, setOffset */ }: 
         // pageSizeOptions={[5, 10, 25]} // rows per page options
         // checkboxSelection // set a checkbox to select multiple items
 
-        // loading={isLoading} // loading animation when changing page
+        loading={isLoading} // loading animation when changing page
       />
     </Box>
   );

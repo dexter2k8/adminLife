@@ -30,3 +30,12 @@ export interface IProvider {
   value: string;
   image: string;
 }
+
+export interface IDataTable {
+  id: number;
+  transaction: string;
+  payer: string;
+  billCode: number;
+  date: Date;
+  status: string;
+}

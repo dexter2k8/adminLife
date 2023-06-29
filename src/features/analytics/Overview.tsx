@@ -8,7 +8,9 @@ import { overviewColumns } from "@/components/Tables/columns";
 import Filter from "@/components/Filter";
 import api from "@/services/api";
 import { MenuContext } from "@/hook/menuContext";
-import { formatNumber } from "@/utils/lib";
+import { formatNumber, stringDate } from "@/utils/lib";
+import { getdataTable } from "@/api/analytics/Overview";
+import { IDataTable } from "@/interfaces";
 
 interface IOverviewStats {
   accepted: number;
@@ -21,8 +23,16 @@ interface IResponse {
 }
 
 function Overview() {
-  const { totalBills, setTotalBills } = useContext(MenuContext);
+  const { totalBills, setTotalBills, selectedDate, providerSelected } = useContext(MenuContext);
   const [overviewStats, setOverviewStats] = useState<IOverviewStats | undefined>();
+  const [dataTable, setDataTable] = useState<IDataTable[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const params = {
+    startDate: stringDate(selectedDate.startDate as Date),
+    endDate: stringDate(selectedDate.endDate as Date),
+    provider: providerSelected.value,
+  };
 
   const fetchOverviewStats = async () => {
     try {
@@ -34,8 +44,17 @@ function Overview() {
     }
   };
 
+  const fetchDataTable = async () => {
+    setIsLoading(true);
+    getdataTable(params)
+      .then(setDataTable)
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  };
+
   useEffect(() => {
     fetchOverviewStats();
+    fetchDataTable();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -73,7 +92,12 @@ function Overview() {
         <Filter title="Bill codes" items={billCodes} />
       </section>
 
-      <Table columns={overviewColumns} rows={overviewRows} rowCount={500} />
+      <Table
+        columns={overviewColumns}
+        rows={dataTable ?? []}
+        rowCount={dataTable?.length ?? 10}
+        isLoading={isLoading}
+      />
     </div>
   );
 }

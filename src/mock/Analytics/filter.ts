@@ -4,17 +4,17 @@ interface IPayerProps {
 }
 
 export const payers: IPayerProps[] = [
-  { id: 0, value: "Humana" },
-  { id: 1, value: "Cigna" },
-  { id: 2, value: "DHA" },
-  { id: 3, value: "VHA" },
+  { id: 0, value: "Goyette" },
+  { id: 1, value: "Krajcik" },
+  { id: 2, value: "Upton" },
+  { id: 3, value: "Harvey" },
 ];
 export const billCodes: IPayerProps[] = [
   { id: 0, value: "1923091" },
-  { id: 1, value: "CT-1230" },
-  { id: 2, value: "M2892133" },
+  { id: 1, value: "CT1230" },
+  { id: 2, value: "M289213" },
   { id: 3, value: "0287H77" },
-  { id: 4, value: "Z-2VFF09" },
+  { id: 4, value: "Z2VFF09" },
   { id: 5, value: "1234568" },
   { id: 6, value: "1287098" },
 ];

@@ -6,6 +6,9 @@ import { ISelectProps } from "@/interfaces";
 export const calendarDate = (dateObj: ISelectProps | Range) =>
   `${format(dateObj.startDate as Date, "MM.dd.yyyy")} - ${format(dateObj.endDate as Date, "MM.dd.yyyy")}`;
 
+// formatted date to string date
+export const formatDate = (dateObj: Date | string) => format(new Date(dateObj), "MM.dd.yyyy");
+
 // number formatted tu USD currency
 export const formatCurrency = (value: number): string => {
   const formatter = new Intl.NumberFormat("en-US", {

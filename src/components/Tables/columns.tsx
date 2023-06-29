@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/lib";
+import { formatCurrency, formatDate } from "@/utils/lib";
 import { GridCellParams, GridColDef } from "@mui/x-data-grid";
 // seleção da classe para estilização da coluna status
 const status = (params: GridCellParams<any>) => {
@@ -8,18 +8,27 @@ const status = (params: GridCellParams<any>) => {
   return "status";
 };
 
+const renderDate = {
+  field: "date",
+  headerName: "Date",
+  flex: 1,
+  renderCell({ row: { date } }: any) {
+    return formatDate(date);
+  },
+};
+
 export const overviewColumns: GridColDef[] = [
-  { field: "id", headerName: "Transaction", flex: 1 },
+  { field: "transaction", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "billCodes", headerName: "Bill Codes", flex: 1, align: "center", headerAlign: "center" },
-  { field: "date", headerName: "Transaction Date", flex: 1 },
+  { field: "billCode", headerName: "Bill Code", flex: 1, align: "center", headerAlign: "center" },
+  renderDate,
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
 ];
 
 export const acceptedColumns: GridColDef[] = [
-  { field: "id", headerName: "Transaction", flex: 1 },
+  { field: "transaction", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "billCodes", headerName: "Bill Codes", flex: 1 },
+  { field: "billCode", headerName: "Bill Code", flex: 1 },
   { field: "date", headerName: "Transaction Date", flex: 1 },
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
   {
@@ -40,9 +49,9 @@ export const acceptedColumns: GridColDef[] = [
   },
 ];
 export const rejectedColumns: GridColDef[] = [
-  { field: "id", headerName: "Transaction", flex: 1 },
+  { field: "transaction", headerName: "Transaction", flex: 1 },
   { field: "payer", headerName: "Payer", flex: 1 },
-  { field: "billCodes", headerName: "Bill Codes", flex: 1 },
+  { field: "billCode", headerName: "Bill Code", flex: 1 },
   { field: "date", headerName: "Transaction Date", flex: 1 },
   { field: "status", headerName: "Status", flex: 1, cellClassName: status },
   {
