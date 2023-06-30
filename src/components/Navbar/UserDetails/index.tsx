@@ -22,7 +22,11 @@ function UserDetails({ avatar, username, email }: IUserDetailsProps) {
   }, [signOut]);
 
   return (
-    <div className={styles.userDetails}>
+    <div
+      className={styles.userDetails}
+      onMouseEnter={(e) => e.currentTarget.classList.add(styles.show)}
+      onMouseLeave={(e) => e.currentTarget.classList.remove(styles.show)}
+    >
       <figure>{avatar ? <Image src={avatar} alt="avatar" width={40} height={40} /> : <PersonOutlineIcon />}</figure>
       <section>
         <div>

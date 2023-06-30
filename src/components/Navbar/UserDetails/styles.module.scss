@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
   margin-right: 1.5rem;
+
   section {
-    width: 100%;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: default;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,24 +16,36 @@
     div {
       padding: 0 1rem;
       p {
-        font-size: .75rem;
+        font-size: 0.75rem;
+        max-width: 200px;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
     a {
       max-height: 1.5rem;
     }
   }
+
   figure {
-    background-color: var(--bg-primary);    
+    background-color: var(--bg-primary);
     min-width: 2.5rem;
-    height: 2.5rem;    
+    height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
     svg {
       color: var(--font-default);
       font-size: 2.5rem;
-      padding-left: .5rem;
-      padding-top: .5rem;
+      padding-left: 0.5rem;
+      padding-top: 0.5rem;
     }
+  }
+}
+
+.show {
+  section {
+    max-width: 220px;
+    // padding-left: 16px;
+    opacity: 1;
   }
 }
