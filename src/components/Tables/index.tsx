@@ -84,9 +84,9 @@ function Table({ columns, rows, rowCount, rowClick, isLoading /* setLimit, setOf
         columns={columns}
         rowCount={rowCount} // custom number of rows
         onRowClick={rowClick}
-        paginationMode="server" // table paginated by server
+        // paginationMode="server" // table paginated by server
         localeText={{ footerRowSelected: () => undefined }} // remove footer whitespace
-        components={{ Pagination: CustomPagination }} //show custom pagination
+        // components={{ Pagination: CustomPagination }} //show custom pagination
         // initialState={{
         //   pagination: { paginationModel: { pageSize: 25 } }, // rows per page default
         // }}

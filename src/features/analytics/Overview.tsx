@@ -56,7 +56,7 @@ function Overview() {
     fetchOverviewStats();
     fetchDataTable();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [providerSelected, selectedDate]);
 
   return (
     <div>
