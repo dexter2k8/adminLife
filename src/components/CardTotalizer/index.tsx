@@ -10,10 +10,10 @@ interface ICardTotalizerProps {
   decimals?: number | 0;
   prefix?: string;
   suffix?: string;
-  strapline?: string;
+  strapline?: number;
 }
 
-function CardTotalizer({ title, value, color, decimals, prefix, suffix, strapline }: ICardTotalizerProps) {
+function CardTotalizer({ title, value, color, decimals, prefix, suffix, strapline = 0 }: ICardTotalizerProps) {
   return (
     <>
       <div className={style.container}>
@@ -30,7 +30,7 @@ function CardTotalizer({ title, value, color, decimals, prefix, suffix, straplin
               duration={1}
               style={{ color: `${color}` }}
             />
-            <h4>{strapline}</h4>
+            <CountUp end={strapline} decimal="." suffix=" claims" duration={1} />
           </>
         ) : (
           <>

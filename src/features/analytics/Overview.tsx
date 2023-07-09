@@ -2,7 +2,6 @@ import style from "./styles.module.scss";
 import { memo, useContext, useEffect, useState } from "react";
 import CardTotalizer from "@/components/CardTotalizer";
 import Table from "@/components/Tables";
-import { overviewRows } from "@/mock/Analytics/overview";
 import { payers, billCodes } from "@/mock/Analytics/filter";
 import { overviewColumns } from "@/components/Tables/columns";
 import Filter from "@/components/Filter";
@@ -67,7 +66,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.accepted) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.accepted)} bills`}
+          strapline={overviewStats && overviewStats.accepted}
         />
         <CardTotalizer
           title="Rejected"
@@ -75,7 +74,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.rejected) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.rejected)} bills`}
+          strapline={overviewStats && overviewStats.rejected}
         />
         <CardTotalizer
           title="Pending"
@@ -83,7 +82,7 @@ function Overview() {
           decimals={1}
           value={overviewStats && (100 * overviewStats.pending) / totalBills}
           suffix="%"
-          strapline={`${overviewStats && formatNumber(overviewStats.pending)} bills`}
+          strapline={overviewStats && overviewStats.pending}
         />
       </section>
 

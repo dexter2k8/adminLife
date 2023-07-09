@@ -87,10 +87,10 @@ function Table({ columns, rows, rowCount, rowClick, isLoading /* setLimit, setOf
         // paginationMode="server" // table paginated by server
         localeText={{ footerRowSelected: () => undefined }} // remove footer whitespace
         // components={{ Pagination: CustomPagination }} //show custom pagination
-        // initialState={{
-        //   pagination: { paginationModel: { pageSize: 25 } }, // rows per page default
-        // }}
-        // pageSizeOptions={[5, 10, 25]} // rows per page options
+        initialState={{
+          pagination: { paginationModel: { pageSize: 25 } }, // rows per page default
+        }}
+        // pageSizeOptions={[10, 25, 50]} // rows per page options
         // checkboxSelection // set a checkbox to select multiple items
 
         loading={isLoading} // loading animation when changing page
