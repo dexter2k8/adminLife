@@ -9,7 +9,7 @@ interface IRequestDataList {
   signal?: GenericAbortSignal;
 }
 
-export async function getdataTable({
+export async function getDataTable({
   startDate,
   endDate,
   provider,

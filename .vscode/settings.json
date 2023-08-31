@@ -1,0 +1,11 @@
+{
+    "colorize.languages": [
+        "typescript",
+        "javascript",
+        "css",
+        "scss"
+    ],
+    "cSpell.words": [
+        "strapline"
+    ]
+}

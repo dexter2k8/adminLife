@@ -7,8 +7,8 @@ import { overviewColumns } from "@/components/Tables/columns";
 import Filter from "@/components/Filter";
 import api from "@/services/api";
 import { MenuContext } from "@/hook/menuContext";
-import { formatNumber, stringDate } from "@/utils/lib";
-import { getdataTable } from "@/api/analytics/Overview";
+import { stringDate } from "@/utils/lib";
+import { getDataTable } from "@/api/analytics/Overview";
 import { IDataTable } from "@/interfaces";
 
 interface IOverviewStats {
@@ -45,7 +45,7 @@ function Overview() {
 
   const fetchDataTable = async () => {
     setIsLoading(true);
-    getdataTable(params)
+    getDataTable(params)
       .then(setDataTable)
       .catch(console.error)
       .finally(() => setIsLoading(false));

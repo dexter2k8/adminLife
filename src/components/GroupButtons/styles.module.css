@@ -1,0 +1,25 @@
+.container ul {
+  display: flex;
+  gap: 8px;
+}
+
+.container ul li {
+  border: 1px solid var(--thumbBG);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.container ul li:hover {
+  padding: 10.9px 12px;
+  border-top: 3px solid var(--sidebar-hover-color);
+  border-bottom: 3px solid var(--sidebar-hover-color);
+}
+
+.container ul li.active {
+  background: var(--sidebar-hover-color);
+  border-color: var(--sidebar-hover-color);
+  color: var(--font-secondary-color);
+}
