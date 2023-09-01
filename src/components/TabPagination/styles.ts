@@ -22,7 +22,7 @@ export const boxTabsStyle = {
   alignItems: "center",
 };
 
-export const pannelStyle = {
+export const panelStyle = {
   height: "calc(100vh - 11.75rem)",
   p: 0,
   overflowY: "auto",

@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { boxStyle, boxTabsStyle, pannelStyle, tabStyle } from "./styles";
+import { boxStyle, boxTabsStyle, panelStyle, tabStyle } from "./styles";
 import Calendar from "../Calendar";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { ITabListProps } from "@/interfaces";
 
 interface ITabPaginationProps {
@@ -17,10 +17,11 @@ interface ITabPaginationProps {
 }
 
 function TabPagination({ activeTab, setActiveTab, tabList, page }: ITabPaginationProps) {
-  const router = useRouter();
+  // const router = useRouter();
   const handleChange = useCallback(
     (event: React.SyntheticEvent, newValue: string) => {
-      router.replace(`${page}?activeTab=${tabList[Number(newValue)].label}`);
+      // router does not working due to MirageJS conflict.
+      // router.replace(`${page}?activeTab=${tabList[Number(newValue)].label}`);
       setActiveTab(newValue);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +41,7 @@ function TabPagination({ activeTab, setActiveTab, tabList, page }: ITabPaginatio
           <Calendar />
         </Box>
         {/* Seleção da tab ativa */}
-        <TabPanel sx={pannelStyle} value={activeTab}>
+        <TabPanel sx={panelStyle} value={activeTab}>
           {tabList[Number(activeTab)].tabPage}
         </TabPanel>
       </TabContext>
