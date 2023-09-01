@@ -3,7 +3,7 @@ import { memo, useState } from "react";
 import GroupButtons from "@/components/GroupButtons";
 import CardTotalDays from "@/components/CardTotalDays";
 import Table from "@/components/Tables";
-import { outstandingCptCodes, outstandingPayer, outstandingRows } from "@/mock/Analytics/outstanding";
+import { pendingBillCodes, pendingPayer, pendingRows } from "@/mock/Analytics/pending";
 import Filter from "@/components/Filter";
 import { addDays } from "date-fns";
 import { billCodes, payers } from "@/mock/Analytics/filter";
@@ -16,7 +16,7 @@ export interface ISelectProps {
   endDate: Date;
 }
 
-function Outstanding() {
+function Pending() {
   const [activeDate, setActiveDate] = useState<number>(0);
   const selectDates: ISelectProps[] = [
     { title: "All", startDate: new Date(), endDate: addDays(new Date(), 7) },
@@ -28,7 +28,7 @@ function Outstanding() {
     <div>
       <section className={style.days}>
         <GroupButtons activeItem={activeDate} setActiveItem={setActiveDate} selectItems={selectDates} />
-        <h3>Total Outstanding: 1.023 ($2,041,129.00)</h3>
+        <h3>Total Pending: 1.023 ($2,041,129.00)</h3>
       </section>
 
       <section className={`${style.cards} ${style.charts}`}>
@@ -42,14 +42,14 @@ function Outstanding() {
           bgClass="salmon"
         />
         <ChartHorizontalBar
-          title="Top Outstanding CPT Codes"
-          data={outstandingCptCodes}
+          title="Top Pending Bill Codes"
+          data={pendingBillCodes}
           chartHeight={164}
           cardHeight="250px"
         />
         <ChartHorizontalBar
-          title="Top Outstanding Payer"
-          data={outstandingPayer}
+          title="Top Pending Payer"
+          data={pendingPayer}
           chartHeight={164}
           cardHeight="250px"
         />
@@ -57,12 +57,12 @@ function Outstanding() {
 
       <section className={style.filters}>
         <Filter title="Payers" items={payers} />
-        <Filter title="CTP codes" items={billCodes} />
+        <Filter title="Bill codes" items={billCodes} />
       </section>
 
-      <Table isLoading={false} columns={overviewColumns} rows={outstandingRows} rowCount={outstandingRows?.length ?? 10}/>
+      <Table isLoading={false} columns={overviewColumns} rows={pendingRows} rowCount={pendingRows?.length ?? 10}/>
     </div>
   );
 }
 
-export default memo(Outstanding);
+export default memo(Pending);

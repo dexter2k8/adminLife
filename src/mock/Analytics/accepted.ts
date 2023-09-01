@@ -1,9 +1,9 @@
 export const acceptedRows = [
   {
     id: 1,
-    pcn: 12345,
-    payer: "Humana",
-    cptCodes: 32,
+    transaction: 12345,
+    payer: "Crossfire",
+    billCode: 32,
     date: "01.20.2022",
     status: "Accepted",
     billed: 649,
@@ -11,9 +11,9 @@ export const acceptedRows = [
   },
   {
     id: 2,
-    pcn: 12346,
-    payer: "Cigna",
-    cptCodes: 31,
+    transaction: 12346,
+    payer: "Signal",
+    billCode: 31,
     date: "02.10.2022",
     status: "Accepted",
     billed: 807.15,
@@ -21,9 +21,9 @@ export const acceptedRows = [
   },
   {
     id: 3,
-    pcn: 12347,
-    payer: "Humana",
-    cptCodes: 2,
+    transaction: 12347,
+    payer: "Medication",
+    billCode: 2,
     date: "03.30.2022",
     status: "Accepted",
     billed: 149,

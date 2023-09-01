@@ -1,4 +1,4 @@
-import style from "./styles.module.css";
+import style from "./styles.module.scss";
 import { memo } from "react";
 import CardTotalizer from "@/components/CardTotalizer";
 import { rejectedRows, rejectedStats, rejectionsCptCodes, rejectionsPayer } from "@/mock/Analytics/rejected";
@@ -23,7 +23,7 @@ function Rejected() {
         <ChartHorizontalBar title="Rejection by Payer" data={rejectionsPayer} chartHeight={164} cardHeight="250px" />
 
         <ChartHorizontalBar
-          title="Rejection by CPT Codes"
+          title="Rejection by Bill Codes"
           data={rejectionsCptCodes}
           chartHeight={164}
           cardHeight="250px"
@@ -32,7 +32,7 @@ function Rejected() {
 
       <section className={style.filters}>
         <Filter title="Payers" items={payers} />
-        <Filter title="CTP codes" items={billCodes} />
+        <Filter title="Bill codes" items={billCodes} />
         <Filter title="Adjustment Reason" items={adjustmentReasons} />
       </section>
 
