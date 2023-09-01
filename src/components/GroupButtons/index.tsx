@@ -1,4 +1,4 @@
-import { ISelectProps } from "../PaginationTokenizedClaims/Outstanding";
+import { ISelectProps } from "@/interfaces";
 import style from "./styles.module.css";
 import { Dispatch, SetStateAction, memo, useCallback } from "react";
 
@@ -13,7 +13,11 @@ function GroupButtons({ activeItem, setActiveItem, selectItems }: IGroupButtonPr
     <div className={style.container}>
       <ul>
         {selectItems.map((el, i) => (
-          <li key={i} onClick={() => setActiveItem(i)} className={activeItem === i ? style.active : undefined}>
+          <li
+            key={i}
+            onClick={() => setActiveItem(i)}
+            className={activeItem === i ? style.active : undefined}
+          >
             {el.title}
           </li>
         ))}

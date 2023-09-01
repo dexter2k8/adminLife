@@ -11,8 +11,13 @@ export default function Dashboard() {
   const tabList: ITabListProps[] = [{ label: "Overview", tabPage: <Overview /> }];
   return (
     <div className={styles.container}>
-      <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-      <TabPagination activeTab={activeTab} setActiveTab={setActiveTab} tabList={tabList} page="dashboard" />
+      <Header title="Dashboard" subtitle="Welcome to your dashboard" />
+      <TabPagination
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabList={tabList}
+        page="dashboard"
+      />
     </div>
   );
 }
