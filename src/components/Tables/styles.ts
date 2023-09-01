@@ -30,7 +30,7 @@ export const styledBox: CSSProperties = {
 
 export const styledDatagrid: CSSProperties = {
   fontSize: 18,
-  fontFamily: "__Nunito_Sans_9c5fb3",
+  fontFamily: 'inherit',
   ".MuiDataGrid-columnSeparator": {
     display: "none",
   },
