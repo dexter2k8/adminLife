@@ -23,7 +23,7 @@ function Navbar() {
           </IconButton>
         </div>
       </section>
-      <UserDetails avatar={"/avatar.jpg"} username={"Admin"} email={"admin@mail.com"} />
+      <UserDetails username={"Admin"} email={"admin@mail.com"} />
     </div>
   );
 }
