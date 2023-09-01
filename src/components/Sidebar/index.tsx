@@ -16,8 +16,8 @@ function Sidebar() {
   const pathname = usePathname();
   const { activePage, setActivePage } = useContext(MenuContext);
   const list: IItemProps[] = [
-    { title: "Dashboard", icon: <GridViewIcon />, activeRoute: "/adminLife/dashboard" },
-    { title: "Analytics", icon: <BarChartIcon />, activeRoute: "/adminLife/analytics" },
+    { title: "Dashboard", icon: <GridViewIcon />, activeRoute: "dashboard" },
+    { title: "Analytics", icon: <BarChartIcon />, activeRoute: "analytics" },
   ];
 
   useEffect(() => {
