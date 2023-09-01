@@ -47,8 +47,9 @@ export default function SignIn() {
         <div>
           <h1>Get exclusive access to AdminHub</h1>
           <p>
-            We are in the process of developing our online platform, where we aim to make the concept as user-friendly
-            as possible. We therefore send out access continuously, focusing on the good costomer contact.
+            We are in the process of developing our online platform, where we aim to make the
+            concept as user-friendly as possible. We therefore send out access continuously,
+            focusing on the good customer contact.
           </p>
         </div>
         <footer>
@@ -65,7 +66,11 @@ export default function SignIn() {
                 <ErrorMessage name="email" component="i" />
 
                 <div className={styles.password}>
-                  <Field type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" />
+                  <Field
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Enter your password"
+                  />
                   <IconButton onClick={() => setShowPassword((show) => !show)}>
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
@@ -79,9 +84,7 @@ export default function SignIn() {
                   </Button>
                 </div>
 
-                <Button type="submit" variant="contained" disabled={isSubmitting} size="large">
-                  Login
-                </Button>
+                <a href={"/dashboard"}>Login</a>
               </Form>
             )}
           </Formik>
