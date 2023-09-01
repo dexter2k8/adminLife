@@ -84,7 +84,7 @@ export default function SignIn() {
                   </Button>
                 </div>
 
-                <a href={"/dashboard"}>Login</a>
+                <a href={"/adminLife/dashboard"}>Login</a>
               </Form>
             )}
           </Formik>
