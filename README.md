@@ -14,6 +14,6 @@ Dashboard page for billing purposes
   
 <p>Link: https://dexter2k8.github.io/adminLife/</p>
 
-![Page layout](https://github.com/dexter2k8/adminLife/blob/main/public/page.gif)
+![Page layout](https://github.com/dexter2k8/dexter-hub/blob/main/public/page.gif)
 
 </p>
